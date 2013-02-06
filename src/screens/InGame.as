@@ -11,6 +11,7 @@ package screens
 	
 	public class InGame extends Sprite
 	{
+		// WEWEWEWEWEWEW
 		private var enemies:Enemies;
 		private var bg:Image;
 		private var bar:Image;
