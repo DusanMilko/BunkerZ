@@ -24,7 +24,7 @@ package screens
 		
 		private var coins:uint;
 		
-		private var gameState:String; //Idle Play Over
+		private var gameState:String; //Idle Play Over Variable
 		
 		public function InGame()
 		{
