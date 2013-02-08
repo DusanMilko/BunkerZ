@@ -49,7 +49,7 @@ package screens
 			trace(event.target as Button);
 			if((event.target as Button)== startBtn)
 			{
-				this.dispatchEvent(new NavigationEvent(NavigationEvent.CHANGE_SCREEN,{id:"play"},true));
+				this.dispatchEvent(new NavigationEvent(NavigationEvent.CHANGE_SCREEN,{id:"select"},true));
 			}
 		}
 		public function disposeTemp():void

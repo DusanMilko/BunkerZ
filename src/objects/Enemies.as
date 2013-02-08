@@ -6,21 +6,21 @@ package objects
 	{
 		
 		public var zombie:Zombie;
+		private var dad:Object = this.parent;
 		
-		public function Enemies(amount):void
+		public function Enemies():void
 		{
 			super();
-			
-			for(var i:uint = 0; i < amount; i++){
-				makeZombies();
-			}
-			
 		}
 		
-		private function makeZombies():void
+		public function makeZombies(amount):void
 		{
-			zombie = new Zombie();
-			this.addChild(zombie);
+			for(var i:uint = 0; i < amount; i++)
+			{
+				zombie = new Zombie();
+				this.addChild(zombie);
+			}
+	
 		}
 		
 	}

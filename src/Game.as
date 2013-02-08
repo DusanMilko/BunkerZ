@@ -3,6 +3,7 @@ package
 	import events.NavigationEvent;
 	
 	import screens.InGame;
+	import screens.Section;
 	import screens.StartScreen;
 	
 	import starling.display.Sprite;
@@ -13,7 +14,12 @@ package
 		//Screens
 		private var startScreen:StartScreen;
 		private var inGameScreen:InGame;
+		private var sectionScreen:Section;
 		public var level:uint;
+		
+		public var section:uint = 4;
+		public var currentSection:uint = 1;
+		public var floor:uint = 1;
 		
 		public function Game()
 		{
@@ -42,6 +48,14 @@ package
 				case "play":
 					startScreen.disposeTemp();
 					inGameScreen.initilize();
+					this.removeChild(sectionScreen);
+					break;
+				case "select":
+					startScreen.disposeTemp();
+					inGameScreen.disposeTemp();
+					sectionScreen = new Section();
+					this.addChild(sectionScreen);
+					
 					break;
 			}
 		}

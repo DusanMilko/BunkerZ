@@ -1,6 +1,10 @@
 package objects
 {
+	
+	//import classes
 	import com.greensock.TweenLite;
+	
+	import flash.utils.getTimer;
 	
 	import starling.core.Starling;
 	import starling.display.Image;
@@ -10,16 +14,20 @@ package objects
 	import starling.events.Touch;
 	import starling.events.TouchEvent;
 	import starling.events.TouchPhase;
+	//import starling.text.TextField;
 	
 	public class Zombie extends Sprite
 	{
+		//create var for imported classes
+		private var inGame:Object;
+		
 		private var zombieArt:MovieClip;
 		private var zombieDead:Image;
 		private var xlocation:uint; 
 		private var ylocation:uint;
 		private var runtoX:uint;
 		private var runtoY:uint;
-		
+			
 		public function Zombie()
 		{
 			super();
@@ -54,8 +62,15 @@ package objects
 			{
 				runtoY = 60;
 			}
-			var speed:int = (Math.sqrt(ylocation*xlocation + runtoY*runtoX))/30;
+			
+			var ys:Number = Math.abs(ylocation - runtoY);
+			var xs:Number = Math.abs(xlocation - runtoX);
+			var dist:Number = (Math.sqrt( ys*ys+xs*xs ));
+			
+			var speed:Number = dist/25;
+			
 			TweenLite.to(zombieArt,speed,{x:runtoX ,y:runtoY});
+			trace('sped:' + speed);
 		}
 		private function changeDirection(event:Event):void
 		{
@@ -65,42 +80,58 @@ package objects
 			}
 		}
 		
-		
 		private function zomClick(event:TouchEvent):void
 		{
-			var touch:Touch = event.getTouch(this, TouchPhase.BEGAN);
-			if (touch)
-			{
+
+			
+					inGame = this.parent.parent;
 				
-				zombieDead = new Image(Assets.getAtlas().getTexture("zomDead"));
-				this.removeChild(zombieArt);
-				this.addChild(zombieDead);
-				zombieDead.x = zombieArt.x;
-				zombieDead.y = zombieArt.y;
-				
-				//TEST-------------------------------
-				
-				//This works only line under
-				//this.parent.setChildIndex(this, 1);
-				
-				trace(this.parent.getChildAt(1).pivotY + " " + zombieDead.y);
-				//this.parent.getChildAt(5).visible = false;
-				//this.parent.swapChildren( this.parent.getChildAt(1), this );
-				
-				for( var i:uint = 0; i<this.parent.numChildren; i++){
-					
-					if( this.parent.getChildAt(i).y < this.y ){
-						this.parent.swapChildren( this.parent.getChildAt(i), this );
-					}
-					
-				}
-				
-				
-				//END TEST---------------------------
-				
-				this.removeEventListener(TouchEvent.TOUCH, zomClick);		
-				
-			}
+					var touch:Touch = event.getTouch(this, TouchPhase.BEGAN);
+					if(touch)
+					{			
+						this.removeEventListener(TouchEvent.TOUCH, zomClick);
+						inGame.score ++;
+						inGame.scoreText.text = "score "+ inGame.score;
+						
+						inGame.killed ++;
+						if(inGame.kills == inGame.killed)//make new floor
+						{
+							inGame.makeFloor();
+						}
+						else{
+						
+							zombieDead = new Image(Assets.getAtlas().getTexture("zomDead"));
+							this.removeChild(zombieArt);
+							this.addChild(zombieDead);
+							zombieDead.x = zombieArt.x;
+							zombieDead.y = zombieArt.y;
+							
+							//TEST-------------------------------
+							
+							//This works only line under
+							this.parent.setChildIndex(this, 1);
+							/*
+							trace(this.parent.getChildAt(1).pivotY + " " + zombieDead.y);
+							//this.parent.getChildAt(5).visible = false;
+							//this.parent.swapChildren( this.parent.getChildAt(1), this );
+							
+							for( var i:uint = 0; i<this.parent.numChildren; i++)
+							{
+								
+								if( this.parent.getChildAt(i).y < this.y )
+								{
+									this.parent.swapChildren( this.parent.getChildAt(i), this );
+								}
+								
+							}
+							
+							*/
+							//END TEST---------------------------
+							
+							
+						}
+					}//End if
+			
 		}
 	}
 }

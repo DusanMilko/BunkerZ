@@ -3,6 +3,8 @@ package
 	import flash.display.Bitmap;
 	import flash.utils.Dictionary;
 	
+	//import starling.text.BitmapFont;
+	//import starling.text.TextField;
 	import starling.textures.Texture;
 	import starling.textures.TextureAtlas;
 
@@ -15,6 +17,9 @@ package
 		[Embed(source="../assets/startBtn.png")]
 		public static const startBtnImg:Class;
 		
+		[Embed(source="../assets/button.png")]
+		public static const buttonImg:Class;
+		
 		[Embed(source="../assets/titleImg.png")]
 		public static const titleImg:Class;
 		
@@ -24,6 +29,11 @@ package
 		[Embed(source="../assets/bg1.png")]
 		public static const bg1:Class;
 		
+		//text
+		[Embed(source="../assets/fonts/font1.ttf", embedAsCFF="false", fontFamily="MyFontName")]
+		private static const MyFont:Class;
+		
+		//dictionary
 		private static var gameTextures:Dictionary = new Dictionary();
 		private static var gameTextureAtlas:TextureAtlas; //TextureAtlas is starling built in
 		
