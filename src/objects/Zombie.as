@@ -82,9 +82,43 @@ package objects
 		
 		private function zomClick(event:TouchEvent):void
 		{
+<<<<<<< HEAD
 
 			
 					inGame = this.parent.parent;
+=======
+			var touch:Touch = event.getTouch(this, TouchPhase.BEGAN);
+			if (touch)
+			{
+				
+				zombieDead = new Image(Assets.getAtlas().getTexture("zomDead"));
+				this.removeChild(zombieArt);
+				this.addChild(zombieDead);
+				zombieDead.x = zombieArt.x;
+				zombieDead.y = zombieArt.y;
+				
+				//TEST-------------------------------
+				
+				//This works only line under
+				this.parent.setChildIndex(this, 1);
+				/*
+				trace(this.parent.getChildAt(1).pivotY + " " + zombieDead.y);
+				//this.parent.getChildAt(5).visible = false;
+				//this.parent.swapChildren( this.parent.getChildAt(1), this );
+				
+				for( var i:uint = 0; i<this.parent.numChildren; i++){
+					
+					if( this.parent.getChildAt(i).y < this.y ){
+						this.parent.swapChildren( this.parent.getChildAt(i), this );
+					}
+					
+				}
+				*/
+				
+				//END TEST---------------------------
+				
+				this.removeEventListener(TouchEvent.TOUCH, zomClick);		
+>>>>>>> 53595826b4256ada051124a2bacd2af5307563fb
 				
 					var touch:Touch = event.getTouch(this, TouchPhase.BEGAN);
 					if(touch)
