@@ -75,7 +75,8 @@ package screens
 			bar = new Image(Assets.getTexture("barImg"));
 			this.addChild(bar);
 			
-			enemies = new Enemies(15);
+			enemies = new Enemies(1);
+			//enemies(3);
 			this.addChild(enemies);
 	
 		}

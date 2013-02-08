@@ -81,8 +81,8 @@ package objects
 				//TEST-------------------------------
 				
 				//This works only line under
-				//this.parent.setChildIndex(this, 1);
-				
+				this.parent.setChildIndex(this, 1);
+				/*
 				trace(this.parent.getChildAt(1).pivotY + " " + zombieDead.y);
 				//this.parent.getChildAt(5).visible = false;
 				//this.parent.swapChildren( this.parent.getChildAt(1), this );
@@ -94,7 +94,7 @@ package objects
 					}
 					
 				}
-				
+				*/
 				
 				//END TEST---------------------------
 				
