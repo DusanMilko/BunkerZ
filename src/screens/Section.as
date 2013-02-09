@@ -17,6 +17,7 @@ package screens
 		private var sectionBtn:Button;
 		private var btnArray:Array = new Array();
 		
+		public var btnE:Event;//made event
 		
 		public function Section()
 		{
@@ -24,13 +25,11 @@ package screens
 			this.addEventListener(starling.events.Event.ADDED_TO_STAGE, onAddedToStage);	
 		}
 		
-		private function onAddedToStage(event:Event):void
+		private function onAddedToStage(e:Event):void
 		{
 			game = this.parent;
-			trace("parent = " + game);
 			openSection = game.section;
-			trace("section = " + openSection);
-			
+		
 			for(var i:uint = 0; i < openSection; i ++)
 			{
 				sectionBtn = new Button(Assets.getTexture("buttonImg"));
@@ -40,15 +39,16 @@ package screens
 				sectionBtn.y = 100 + (40*i);
 				var nam:String;
 				sectionBtn.name = String(i+1);
-				sectionBtn.addEventListener(Event.TRIGGERED, onMenuClick);
+				//sectionBtn.addEventListener(Event.TRIGGERED, onMenuClick);
 			}
 
-			//this.addEventListener(Event.TRIGGERED, onMenuClick);
+			this.addEventListener(Event.TRIGGERED, onMenuClick);
 		}
 		
 			
-		private function onMenuClick(event:Event):void
+		private function onMenuClick(e:Event):void
 		{
+<<<<<<< HEAD
 			var game:Object = this.parent;
 			trace(this.getChildAt(1).name);
 			trace(event.target.hasOwnProperty("name") );
@@ -63,7 +63,14 @@ package screens
 				this.dispatchEvent(new NavigationEvent(NavigationEvent.CHANGE_SCREEN,{id:"play"},true));
 			}
 			*/
+=======
+			game = this.parent;
+			game.level = uint((e.target as Button).name);
+			//game.selctedLevel(); 
+>>>>>>> origin/Peter
 			
+			//dispatchEvent(new Event("selected", true));
+			this.dispatchEvent(new NavigationEvent(NavigationEvent.CHANGE_SCREEN,{id:"play"},true));
 		}	
 	}
 }

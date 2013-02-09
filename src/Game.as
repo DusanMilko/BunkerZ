@@ -15,9 +15,9 @@ package
 		private var startScreen:StartScreen;
 		private var inGameScreen:InGame;
 		private var sectionScreen:Section;
-		public var level:uint;
-		
+		//values
 		public var section:uint = 4;
+		public var level:uint;
 		public var currentSection:uint = 1;
 		public var floor:uint = 1;
 		
@@ -31,6 +31,7 @@ package
 		{
 			//listen to navigation
 			this.addEventListener(events.NavigationEvent.CHANGE_SCREEN, onChangeScreen);
+			//addEventListener("selected", selctedLevel);// listen to dispatch
 			
 			startScreen = new StartScreen();
 			this.addChild(startScreen);
@@ -41,6 +42,7 @@ package
 			inGameScreen.disposeTemp();
 			
 		}
+			
 		private function onChangeScreen(event:NavigationEvent):void
 		{
 			switch(event.params.id)// takes in given param from nav
@@ -55,7 +57,6 @@ package
 					inGameScreen.disposeTemp();
 					sectionScreen = new Section();
 					this.addChild(sectionScreen);
-					
 					break;
 			}
 		}
