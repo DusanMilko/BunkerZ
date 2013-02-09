@@ -52,7 +52,6 @@ package screens
 			var game:Object = this.parent;
 			trace(this.getChildAt(1).name);
 			trace(event.target.hasOwnProperty("name") );
-			trace(event.target.name.toString());
 			
 			//game.currentSection = uint(sectionBtn.name);
 			//trace(game.currentSection);

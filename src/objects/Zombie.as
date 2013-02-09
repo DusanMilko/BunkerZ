@@ -82,11 +82,10 @@ package objects
 		
 		private function zomClick(event:TouchEvent):void
 		{
-<<<<<<< HEAD
 
+
+			inGame = this.parent.parent;
 			
-					inGame = this.parent.parent;
-=======
 			var touch:Touch = event.getTouch(this, TouchPhase.BEGAN);
 			if (touch)
 			{
@@ -118,7 +117,7 @@ package objects
 				//END TEST---------------------------
 				
 				this.removeEventListener(TouchEvent.TOUCH, zomClick);		
->>>>>>> 53595826b4256ada051124a2bacd2af5307563fb
+
 				
 					var touch:Touch = event.getTouch(this, TouchPhase.BEGAN);
 					if(touch)
@@ -166,6 +165,7 @@ package objects
 						}
 					}//End if
 			
+			}
 		}
 	}
 }
