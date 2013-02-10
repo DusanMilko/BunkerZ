@@ -51,19 +51,11 @@ package screens
 		private var timePrevious:Number
 		private var timeCurrent:Number;
 		private var elapsed:Number;
-<<<<<<< HEAD
+
 		
-		private var coins:uint;
-		
-		private var gameState:String; //Idle Play Over Variable
-		
-=======
-	
-		private var coins:uint;
-		
+		private var coins:uint;		
 		private var gameState:String; //Idle Play Over Variable
 	
->>>>>>> origin/Peter
 		public function InGame()
 		{
 			super();

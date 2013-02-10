@@ -46,10 +46,10 @@ package screens
 			
 		private function onMenuClick(e:Event):void
 		{
-<<<<<<< HEAD
+
 			var game:Object = this.parent;
 			trace(this.getChildAt(1).name);
-			trace(event.target.hasOwnProperty("name") );
+			trace(e.target.hasOwnProperty("name") );
 			
 			//game.currentSection = uint(sectionBtn.name);
 			//trace(game.currentSection);
@@ -61,15 +61,12 @@ package screens
 				this.dispatchEvent(new NavigationEvent(NavigationEvent.CHANGE_SCREEN,{id:"play"},true));
 			}
 			*/
-=======
+
 			game = this.parent;
 			game.level = uint((e.target as Button).name);
 			//game.selctedLevel(); 
-<<<<<<< HEAD
->>>>>>> origin/Peter
+
 			
-=======
->>>>>>> origin/Peter
 			//dispatchEvent(new Event("selected", true));
 			this.dispatchEvent(new NavigationEvent(NavigationEvent.CHANGE_SCREEN,{id:"play"},true));
 		}	

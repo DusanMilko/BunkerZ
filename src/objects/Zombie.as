@@ -81,18 +81,17 @@ package objects
 		
 		private function zomClick(event:TouchEvent):void
 		{
-<<<<<<< HEAD
 
 
 			inGame = this.parent.parent;
 			
-=======
+
 			trace("clicked zom");
 			inGame = this.parent.parent;
 			trace(inGame);
->>>>>>> origin/Peter
-			var touch:Touch = event.getTouch(this, TouchPhase.BEGAN);
-			if(touch)
+
+				var touch:Touch = event.getTouch(this, TouchPhase.BEGAN);
+				if(touch)
 				{		
 					trace("this ran 1");
 					inGame.score ++;
@@ -103,43 +102,18 @@ package objects
 						inGame.makeFloor();
 						trace("this ran 2");
 					}
-<<<<<<< HEAD
+					zombieDead = new Image(Assets.getAtlas().getTexture("zomDead"));
+					this.removeChild(zombieArt);
+					this.addChild(zombieDead);
+					zombieDead.x = zombieArt.x;
+					zombieDead.y = zombieArt.y;
 					
+					this.removeEventListener(TouchEvent.TOUCH, zomClick);	
 				}
-				*/
+				
 				
 				//END TEST---------------------------
-				
-				this.removeEventListener(TouchEvent.TOUCH, zomClick);		
-
-				
-					var touch:Touch = event.getTouch(this, TouchPhase.BEGAN);
-					if(touch)
-					{			
-						this.removeEventListener(TouchEvent.TOUCH, zomClick);
-						inGame.score ++;
-						inGame.scoreText.text = "score "+ inGame.score;
-=======
-					else{
->>>>>>> origin/Peter
-						
-						zombieDead = new Image(Assets.getAtlas().getTexture("zomDead"));
-						this.removeChild(zombieArt);
-						this.addChild(zombieDead);
-						zombieDead.x = zombieArt.x;
-						zombieDead.y = zombieArt.y;
-							
-						trace("this ran 3");
-						//this.parent.setChildIndex(this, 1);	
-						}
-<<<<<<< HEAD
-					}//End if
-			
-			}
-=======
-				}
-			this.removeEventListener(TouchEvent.TOUCH, zomClick);
->>>>>>> origin/Peter
+	
 		}
 	}
 }
