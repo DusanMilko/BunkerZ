@@ -2,9 +2,6 @@ package
 {
 	import flash.display.Bitmap;
 	import flash.utils.Dictionary;
-	
-	//import starling.text.BitmapFont;
-	//import starling.text.TextField;
 	import starling.textures.Texture;
 	import starling.textures.TextureAtlas;
 

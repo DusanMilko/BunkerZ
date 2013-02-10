@@ -15,7 +15,6 @@ package screens
 				
 		private var shopBtn:Button;
 		private var sectionBtn:Button;
-		private var btnArray:Array = new Array();
 		
 		public var btnE:Event;//made event
 		
@@ -37,7 +36,6 @@ package screens
 				sectionBtn.scaleY = 0.2;
 				sectionBtn.x = 400;
 				sectionBtn.y = 100 + (40*i);
-				var nam:String;
 				sectionBtn.name = String(i+1);
 				//sectionBtn.addEventListener(Event.TRIGGERED, onMenuClick);
 			}
@@ -67,8 +65,11 @@ package screens
 			game = this.parent;
 			game.level = uint((e.target as Button).name);
 			//game.selctedLevel(); 
+<<<<<<< HEAD
 >>>>>>> origin/Peter
 			
+=======
+>>>>>>> origin/Peter
 			//dispatchEvent(new Event("selected", true));
 			this.dispatchEvent(new NavigationEvent(NavigationEvent.CHANGE_SCREEN,{id:"play"},true));
 		}	

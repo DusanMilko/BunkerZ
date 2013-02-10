@@ -24,7 +24,7 @@ package screens
 		//parent
 		private var game:Object;
 		
-		public var kills:uint = 2;
+		public var kills:uint = 4;
 		public var killed:uint = 0;
 		
 		//bg
@@ -51,11 +51,19 @@ package screens
 		private var timePrevious:Number
 		private var timeCurrent:Number;
 		private var elapsed:Number;
+<<<<<<< HEAD
 		
 		private var coins:uint;
 		
 		private var gameState:String; //Idle Play Over Variable
 		
+=======
+	
+		private var coins:uint;
+		
+		private var gameState:String; //Idle Play Over Variable
+	
+>>>>>>> origin/Peter
 		public function InGame()
 		{
 			super();
@@ -114,7 +122,7 @@ package screens
 		}
 				
 		public function makeEnemies():void
-		{
+		{			
 			enemies = new Enemies();
 			this.addChild(enemies);
 			enemies.makeZombies(kills);	

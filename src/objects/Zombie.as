@@ -70,7 +70,6 @@ package objects
 			var speed:Number = dist/25;
 			
 			TweenLite.to(zombieArt,speed,{x:runtoX ,y:runtoY});
-			trace('sped:' + speed);
 		}
 		private function changeDirection(event:Event):void
 		{
@@ -82,34 +81,29 @@ package objects
 		
 		private function zomClick(event:TouchEvent):void
 		{
+<<<<<<< HEAD
 
 
 			inGame = this.parent.parent;
 			
+=======
+			trace("clicked zom");
+			inGame = this.parent.parent;
+			trace(inGame);
+>>>>>>> origin/Peter
 			var touch:Touch = event.getTouch(this, TouchPhase.BEGAN);
-			if (touch)
-			{
-				
-				zombieDead = new Image(Assets.getAtlas().getTexture("zomDead"));
-				this.removeChild(zombieArt);
-				this.addChild(zombieDead);
-				zombieDead.x = zombieArt.x;
-				zombieDead.y = zombieArt.y;
-				
-				//TEST-------------------------------
-				
-				//This works only line under
-				this.parent.setChildIndex(this, 1);
-				/*
-				trace(this.parent.getChildAt(1).pivotY + " " + zombieDead.y);
-				//this.parent.getChildAt(5).visible = false;
-				//this.parent.swapChildren( this.parent.getChildAt(1), this );
-				
-				for( var i:uint = 0; i<this.parent.numChildren; i++){
-					
-					if( this.parent.getChildAt(i).y < this.y ){
-						this.parent.swapChildren( this.parent.getChildAt(i), this );
+			if(touch)
+				{		
+					trace("this ran 1");
+					inGame.score ++;
+					inGame.scoreText.text = "score "+ inGame.score;	
+					inGame.killed ++;
+					if(inGame.kills == inGame.killed)//make new floor
+					{
+						inGame.makeFloor();
+						trace("this ran 2");
 					}
+<<<<<<< HEAD
 					
 				}
 				*/
@@ -125,47 +119,27 @@ package objects
 						this.removeEventListener(TouchEvent.TOUCH, zomClick);
 						inGame.score ++;
 						inGame.scoreText.text = "score "+ inGame.score;
+=======
+					else{
+>>>>>>> origin/Peter
 						
-						inGame.killed ++;
-						if(inGame.kills == inGame.killed)//make new floor
-						{
-							inGame.makeFloor();
+						zombieDead = new Image(Assets.getAtlas().getTexture("zomDead"));
+						this.removeChild(zombieArt);
+						this.addChild(zombieDead);
+						zombieDead.x = zombieArt.x;
+						zombieDead.y = zombieArt.y;
+							
+						trace("this ran 3");
+						//this.parent.setChildIndex(this, 1);	
 						}
-						else{
-						
-							zombieDead = new Image(Assets.getAtlas().getTexture("zomDead"));
-							this.removeChild(zombieArt);
-							this.addChild(zombieDead);
-							zombieDead.x = zombieArt.x;
-							zombieDead.y = zombieArt.y;
-							
-							//TEST-------------------------------
-							
-							//This works only line under
-							this.parent.setChildIndex(this, 1);
-							/*
-							trace(this.parent.getChildAt(1).pivotY + " " + zombieDead.y);
-							//this.parent.getChildAt(5).visible = false;
-							//this.parent.swapChildren( this.parent.getChildAt(1), this );
-							
-							for( var i:uint = 0; i<this.parent.numChildren; i++)
-							{
-								
-								if( this.parent.getChildAt(i).y < this.y )
-								{
-									this.parent.swapChildren( this.parent.getChildAt(i), this );
-								}
-								
-							}
-							
-							*/
-							//END TEST---------------------------
-							
-							
-						}
+<<<<<<< HEAD
 					}//End if
 			
 			}
+=======
+				}
+			this.removeEventListener(TouchEvent.TOUCH, zomClick);
+>>>>>>> origin/Peter
 		}
 	}
 }
