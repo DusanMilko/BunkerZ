@@ -24,7 +24,7 @@ package screens
 		//parent
 		private var game:Object;
 		
-		public var kills:uint = 2;
+		public var kills:uint = 4;
 		public var killed:uint = 0;
 		
 		//bg
@@ -51,17 +51,11 @@ package screens
 		private var timePrevious:Number
 		private var timeCurrent:Number;
 		private var elapsed:Number;
-<<<<<<< HEAD
-		
-		public var score:uint = 30;
-		
+	
 		private var coins:uint;
 		
 		private var gameState:String; //Idle Play Over Variable
-=======
-		private var gameState:String; //Idle Play Over
->>>>>>> origin/Peter
-		
+	
 		public function InGame()
 		{
 			super();
@@ -97,7 +91,6 @@ package screens
 			bar = new Image(Assets.getTexture("barImg"));
 			this.addChild(bar);
 			
-<<<<<<< HEAD
 			floorText = new TextField(150,30,"floor " + floor,"MyFontName",32,0xffffff)
 			this.addChild(floorText);
 			floorText.border = true;
@@ -121,12 +114,8 @@ package screens
 		}
 				
 		public function makeEnemies():void
-		{
+		{			
 			enemies = new Enemies();
-=======
-			enemies = new Enemies(1);
-			//enemies(3);
->>>>>>> 53595826b4256ada051124a2bacd2af5307563fb
 			this.addChild(enemies);
 			enemies.makeZombies(kills);	
 		}
